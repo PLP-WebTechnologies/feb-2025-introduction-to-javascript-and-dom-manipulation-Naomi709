@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>JavaScript DOM Manipulation</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header>
+    <h1 id="main-heading">Welcome to My Page</h1>
+  </header>
+
+  <main>
+    <p id="description">Click the buttons below to see JavaScript in action!</p>
+    <button id="change-text">Change Text</button>
+    <button id="change-style">Change Style</button>
+    <button id="add-element">Add Element</button>
+    <button id="remove-element">Remove Element</button>
+
+    <section id="dynamic-section"></section>
+  </main>
+
+  <footer>
+    <small>&copy; 2025 DOM Magic</small>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
+
+
+body {
+    font-family: Arial, sans-serif;
+    padding: 20px;
+  }
+  #dynamic-section p {
+    color: green;
+  }
+  .highlight {
+    color: white;
+    background-color: purple;
+    padding: 10px;
+  }
+  
+
+
+
+
+
+// Change text content
+document.getElementById('change-text').addEventListener('click', function () {
+  document.getElementById('main-heading').textContent = 'You changed the title!';
+});
+
+// Change CSS styles
+document.getElementById('change-style').addEventListener('click', function () {
+  document.getElementById('description').classList.toggle('highlight');
+});
+
+// Add an element
+document.getElementById('add-element').addEventListener('click', function () {
+  const newPara = document.createElement('p');
+  newPara.textContent = 'A new paragraph was added!';
+  document.getElementById('dynamic-section').appendChild(newPara);
+});
+
+// Remove an element
+document.getElementById('remove-element').addEventListener('click', function () {
+  const section = document.getElementById('dynamic-section');
+  if (section.lastElementChild) {
+    section.removeChild(section.lastElementChild);
+  }
+});
